@@ -37,15 +37,27 @@ mbensch-droid-plugins/
 ├── .factory-plugin/
 │   └── marketplace.json    # Marketplace manifest
 ├── plugins/
-│   ├── droid-receipts/      # Example plugin
+│   ├── droid-receipts/     # Session receipt generator
 │   │   ├── .factory-plugin/
-│   │   │   └── plugin.json  # Plugin metadata
-│   │   ├── hooks/            # Hook scripts
+│   │   │   └── plugin.json
+│   │   ├── hooks/
 │   │   │   └── generate-receipt.py
-│   │   ├── hooks.json        # Hook configuration
-│   │   ├── README.md         # Plugin docs
-│   │   └── AGENTS.md         # Plugin dev guide
-└── README.md                 # Marketplace docs
+│   │   ├── hooks.json
+│   │   └── README.md
+│   ├── auto-worktrees/     # Automatic worktree management (hooks)
+│   │   ├── .factory-plugin/
+│   │   │   └── plugin.json
+│   │   ├── hooks/
+│   │   ├── hooks.json
+│   │   └── README.md
+│   └── manual-worktrees/  # On-demand worktree commands
+│       ├── .factory-plugin/
+│       │   └── plugin.json
+│       ├── commands/
+│       │   ├── worktree.md
+│       │   └── clean-worktrees.md
+│       └── README.md
+└── README.md               # Marketplace docs
 ```
 
 ## Available Tasks
@@ -84,9 +96,16 @@ Use Droid to:
 3. Add hooks.json or skills directory as needed
 4. Create hook scripts or skill definitions
 5. Add plugin to marketplace.json
-6. Test by installing locally
-7. Commit and push
+6. Write plugin README.md in the plugin directory
+7. Update the root README.md with the new plugin
+8. Test by installing locally
+9. Commit and push
 ```
+
+**IMPORTANT: Always keep README.md updated.** When adding, removing, or renaming plugins, you MUST update:
+- The plugin's own `plugins/{name}/README.md`
+- The root `README.md` Available Plugins section
+- The `.factory-plugin/marketplace.json` entries
 
 ## Testing Plugins
 

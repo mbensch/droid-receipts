@@ -18,7 +18,8 @@ Then install plugins:
 
 ```bash
 droid plugin install droid-receipts@mbensch-droid-plugins
-droid plugin install droid-worktrees@mbensch-droid-plugins
+droid plugin install auto-worktrees@mbensch-droid-plugins
+droid plugin install manual-worktrees@mbensch-droid-plugins
 ```
 
 Or browse available plugins via the UI:
@@ -41,7 +42,7 @@ Generate visual receipts for Droid sessions showing token usage and costs.
 - Star Wars-style droid cashier names
 - Cost breakdown by token type
 
-### droid-worktrees
+### auto-worktrees
 
 Automatically create and manage git worktrees for Droid sessions, isolating each session on its own branch.
 
@@ -51,6 +52,16 @@ Automatically create and manage git worktrees for Droid sessions, isolating each
 - Automatic cleanup of worktrees older than 14 days
 - Prevents conflicts between concurrent Droid sessions
 - Works on macOS and Linux
+
+### manual-worktrees
+
+On-demand git worktree creation and cleanup via slash commands.
+
+**Features:**
+- `/worktree` - Create a worktree for the current session on demand
+- `/clean-worktrees` - Interactively list and clean up existing worktrees
+- Session isolation with dedicated branches
+- Flexible: use alongside or instead of automatic worktree creation
 
 ## Adding New Plugins
 
