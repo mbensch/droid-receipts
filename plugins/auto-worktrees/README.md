@@ -1,4 +1,4 @@
-# Droid Worktrees
+# Auto Worktrees
 
 A Factory plugin that automatically creates and manages git worktrees for Droid sessions, isolating each session on its own branch.
 
@@ -11,7 +11,7 @@ A Factory plugin that automatically creates and manages git worktrees for Droid 
 droid plugin marketplace add https://github.com/mbensch/mbensch-droid-plugins
 
 # Install the plugin
-droid plugin install droid-worktrees@mbensch-droid-plugins
+droid plugin install auto-worktrees@mbensch-droid-plugins
 ```
 
 Or use the interactive UI: `/plugins` → Marketplaces → Add marketplace → enter URL
@@ -20,7 +20,7 @@ Or use the interactive UI: `/plugins` → Marketplaces → Add marketplace → e
 
 ```bash
 droid plugin marketplace add /path/to/mbensch-droid-plugins
-droid plugin install droid-worktrees@mbensch-droid-plugins
+droid plugin install auto-worktrees@mbensch-droid-plugins
 ```
 
 ## How It Works
@@ -53,7 +53,7 @@ The cleanup threshold (14 days) can be modified by editing the `cleanup-worktree
 ## Plugin Structure
 
 ```
-droid-worktrees/
+auto-worktrees/
 ├── .factory-plugin/
 │   └── plugin.json       # Plugin manifest
 ├── hooks/

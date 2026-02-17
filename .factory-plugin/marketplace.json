@@ -12,9 +12,9 @@
       "category": "productivity"
     },
     {
-      "name": "droid-worktrees",
+      "name": "auto-worktrees",
       "description": "Automatically create and manage git worktrees for Droid sessions, isolating each session on its own branch",
-      "source": "./plugins/droid-worktrees",
+      "source": "./plugins/auto-worktrees",
       "category": "developer-tools"
     },
     {

@@ -1,5 +1,5 @@
 {
-  "name": "droid-worktrees",
+  "name": "auto-worktrees",
   "version": "1.0.0",
   "description": "Automatically create and manage git worktrees for Droid sessions, isolating each session on its own branch",
   "author": {
