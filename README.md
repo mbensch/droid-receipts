@@ -1,10 +1,10 @@
-# Droid Plugins Marketplace
+# Droid Plugins
 
-A Factory plugin marketplace containing curated plugins and tools for enhanced Droid capabilities.
+My personal Factory plugin marketplace - a collection of plugins and tools I've built for Droid.
 
 ## Overview
 
-This is a [Factory Enterprise Plugin Registry](https://docs.factory.ai/enterprise/enterprise-plugin-registry) - a Git-based marketplace for distributing and installing Factory plugins.
+This is my personal marketplace for distributing Droid plugins I've created. Built as a [Factory Enterprise Plugin Registry](https://docs.factory.ai/enterprise/enterprise-plugin-registry), it follows the Git-based marketplace format that Factory uses for plugin distribution.
 
 ## Installation
 
