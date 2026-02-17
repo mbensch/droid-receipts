@@ -1,0 +1,15 @@
+{
+  "name": "droid-plugins",
+  "description": "Personal Droid plugins by Marcel Bensch",
+  "owner": {
+    "name": "Marcel Bensch"
+  },
+  "plugins": [
+    {
+      "name": "droid-receipts",
+      "description": "Generate visual receipts for Droid sessions with token breakdown and cost estimation",
+      "source": "./plugins/droid-receipts",
+      "category": "productivity"
+    }
+  ]
+}
