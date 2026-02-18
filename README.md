@@ -60,11 +60,10 @@ Automatically create and manage git worktrees for Droid sessions, isolating each
 
 ### manual-worktrees
 
-On-demand git worktree creation and cleanup via slash commands.
+On-demand git worktree creation via a slash command.
 
 **Features:**
 - `/worktree` - Create a worktree for the current session on demand
-- `/clean-worktrees` - Interactively list and clean up existing worktrees
 - Session isolation with dedicated branches
 - Flexible: use alongside or instead of automatic worktree creation
 
@@ -87,7 +86,7 @@ A skill for systematic git worktree management with smart directory selection an
 
 - **auto-worktrees** - Best if you want every Droid session to automatically get its own isolated worktree. Great for "set it and forget it" workflows where you always want session isolation.
 
-- **manual-worktrees** - Best if you prefer control over when worktrees are created. Use `/worktree` when you need isolation and `/clean-worktrees` when you're done. Start here if you're unsure.
+- **manual-worktrees** - Best if you prefer control over when worktrees are created. Use `/worktree` when you need isolation. Start here if you're unsure.
 
 ### Recommended Setup
 

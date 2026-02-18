@@ -1,6 +1,6 @@
 # Manual Worktrees
 
-A Factory plugin that provides on-demand git worktree creation and cleanup via slash commands.
+A Factory plugin that provides on-demand git worktree creation via a slash command.
 
 ## Installation
 
@@ -39,24 +39,9 @@ Creates a git worktree for the current session:
 /worktree
 ```
 
-### `/clean-worktrees`
-
-Lists all droid worktrees and lets you select which to remove:
-
-1. Lists all worktrees in `../droid-worktrees/` matching the current repo
-2. Shows each with: directory name, branch, last modified date, age
-3. Prompts you to select one, multiple, or all to remove
-4. Removes selected worktrees and their `droid/*` branches
-
-**Usage:**
-```
-/clean-worktrees
-```
-
 ## Benefits
 
 - **On-Demand Control**: Create worktrees only when you need them
-- **Interactive Cleanup**: Choose exactly which worktrees to remove
 - **Session Isolation**: Each worktree has its own branch for clean history
 - **Flexible**: Use alongside or instead of automatic worktree creation
 
@@ -67,8 +52,7 @@ manual-worktrees/
 ├── .factory-plugin/
 │   └── plugin.json
 ├── commands/
-│   ├── worktree.md
-│   └── clean-worktrees.md
+│   └── worktree.md
 └── README.md
 ```
 
