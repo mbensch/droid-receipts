@@ -1,0 +1,27 @@
+{
+  "name": "droid-plugins",
+  "description": "Personal Droid plugins by Marcel Bensch",
+  "owner": {
+    "name": "Marcel Bensch"
+  },
+  "plugins": [
+    {
+      "name": "manual-worktrees",
+      "description": "On-demand git worktree creation via /worktree command",
+      "source": "./plugins/manual-worktrees",
+      "category": "developer-tools"
+    },
+    {
+      "name": "worktrees-skill",
+      "description": "A skill for systematic git worktree management with smart directory selection and safety verification",
+      "source": "./plugins/worktrees-skill",
+      "category": "developer-tools"
+    },
+    {
+      "name": "jira-tools",
+      "description": "Jira skills for managing tickets, creating stories, and filing bugs via Atlassian MCP tools",
+      "source": "./plugins/jira-tools",
+      "category": "productivity"
+    }
+  ]
+}

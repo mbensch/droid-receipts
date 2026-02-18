@@ -1,0 +1,8 @@
+{
+  "name": "manual-worktrees",
+  "version": "1.0.0",
+  "description": "On-demand git worktree creation via /worktree command",
+  "author": {
+    "name": "Marcel Bensch"
+  }
+}
