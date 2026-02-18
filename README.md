@@ -11,18 +11,18 @@ This is my personal marketplace for distributing plugins I've created. It works 
 ### Factory (Droid)
 
 ```bash
-droid plugin marketplace add https://github.com/mbensch/mbensch-droid-plugins
+droid plugin marketplace add https://github.com/mbensch/mb-ai-tools
 ```
 
 ```bash
 # Core plugins
-droid plugin install droid-receipts@mbensch-droid-plugins
+droid plugin install droid-receipts@mb-ai-tools
 
 # Choose ONE worktree approach (see Author's Notes below)
-droid plugin install manual-worktrees@mbensch-droid-plugins  # or auto-worktrees
+droid plugin install manual-worktrees@mb-ai-tools  # or auto-worktrees
 
 # Optional: enhances worktree handling
-droid plugin install worktrees-skill@mbensch-droid-plugins
+droid plugin install worktrees-skill@mb-ai-tools
 ```
 
 Or browse available plugins via the UI: `/plugins`
@@ -30,13 +30,13 @@ Or browse available plugins via the UI: `/plugins`
 ### Claude Code
 
 ```bash
-/plugin marketplace add https://github.com/mbensch/mbensch-droid-plugins
+/plugin marketplace add https://github.com/mbensch/mb-ai-tools
 ```
 
 ```bash
-/plugin install manual-worktrees@droid-plugins
-/plugin install worktrees-skill@droid-plugins
-/plugin install jira-tools@droid-plugins
+/plugin install manual-worktrees@mb-ai-tools
+/plugin install worktrees-skill@mb-ai-tools
+/plugin install jira-tools@mb-ai-tools
 ```
 
 Or browse available plugins via: `/plugin marketplace list`
@@ -123,12 +123,12 @@ Plugins that rely on Droid-specific lifecycle hooks (`SessionStart`, `SessionEnd
 
 ```bash
 # Option A: Automatic worktrees + skill
-droid plugin install auto-worktrees@mbensch-droid-plugins
-droid plugin install worktrees-skill@mbensch-droid-plugins
+droid plugin install auto-worktrees@mb-ai-tools
+droid plugin install worktrees-skill@mb-ai-tools
 
 # Option B: Manual worktrees + skill (recommended if unsure)
-droid plugin install manual-worktrees@mbensch-droid-plugins
-droid plugin install worktrees-skill@mbensch-droid-plugins
+droid plugin install manual-worktrees@mb-ai-tools
+droid plugin install worktrees-skill@mb-ai-tools
 ```
 
 The `worktrees-skill` plugin complements either choice by giving Droid a deeper understanding of worktree best practices for complex implementation tasks.

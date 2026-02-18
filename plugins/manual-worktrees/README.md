@@ -8,10 +8,10 @@ A Factory plugin that provides on-demand git worktree creation via a slash comma
 
 ```bash
 # Add the marketplace
-droid plugin marketplace add https://github.com/mbensch/mbensch-droid-plugins
+droid plugin marketplace add https://github.com/mbensch/mb-ai-tools
 
 # Install the plugin
-droid plugin install manual-worktrees@mbensch-droid-plugins
+droid plugin install manual-worktrees@mb-ai-tools
 ```
 
 Or use the interactive UI: `/plugins` → Marketplaces → Add marketplace → enter URL
@@ -19,8 +19,8 @@ Or use the interactive UI: `/plugins` → Marketplaces → Add marketplace → e
 ### From Local Directory (Development)
 
 ```bash
-droid plugin marketplace add /path/to/mbensch-droid-plugins
-droid plugin install manual-worktrees@mbensch-droid-plugins
+droid plugin marketplace add /path/to/mb-ai-tools
+droid plugin install manual-worktrees@mb-ai-tools
 ```
 
 ## Commands

@@ -1,6 +1,6 @@
 # Droid Marketplace - Agent Guide
 
-This guide explains how to use Droid to work with the `mbensch-droid-plugins` marketplace repository.
+This guide explains how to use Droid to work with the `mb-ai-tools` marketplace repository.
 
 ## Working with This Repository
 
@@ -35,7 +35,7 @@ Droid can help you with:
 This repo serves as a marketplace for both Factory (Droid) and Claude Code. The `.factory-plugin/` directories are for Droid, and `.claude-plugin/` directories are for Claude Code. Plugins using only `skills/` and `commands/` work on both platforms. Hook-based plugins (`droid-receipts`, `auto-worktrees`) are Droid-only.
 
 ```
-mbensch-droid-plugins/
+mb-ai-tools/
 ├── .factory-plugin/
 │   └── marketplace.json    # Factory marketplace manifest (all plugins)
 ├── .claude-plugin/
@@ -142,7 +142,7 @@ Locally test plugin before pushing:
 droid plugin marketplace add /path/to/this/repo
 
 # Install plugin
-droid plugin install your-plugin@mbensch-droid-plugins
+droid plugin install your-plugin@mb-ai-tools
 
 # Test functionality
 # Verify hooks fire
