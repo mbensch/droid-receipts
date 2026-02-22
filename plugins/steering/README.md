@@ -8,6 +8,7 @@ Inspired by [Kiro's steering file concept](https://kiro.dev), adapted for Factor
 
 - `/init-steering` -- deep-scans your codebase (manifests, linter configs, docs, CI) and generates a `STEERING.md` tailored to your project. Also updates `AGENTS.md` to enforce reading it and installs a project-local `tech-stack` skill.
 - `/update-steering` -- guided command to add or modify rules in `STEERING.md` (new "do" rules, "don't" rules, tech stack changes, conventions, etc.)
+- `/remove-steering` -- removes all steering artifacts: deletes `STEERING.md`, removes the `tech-stack` skill, and strips the steering section from `AGENTS.md`.
 - `tech-stack` skill -- an auto-loaded project skill installed by `/init-steering` that reinforces reading `STEERING.md` before every technology or architecture decision.
 
 ## Installation
@@ -50,6 +51,16 @@ Add or change rules at any time:
 ```
 
 The command guides you through choosing the type of change and writing the rule.
+
+### Remove
+
+Remove all steering artifacts from the project:
+
+```
+/remove-steering
+```
+
+Deletes `STEERING.md`, removes `.factory/skills/tech-stack/`, and strips the steering section from `AGENTS.md`. Asks for confirmation before making any changes.
 
 ## STEERING.md Structure
 
