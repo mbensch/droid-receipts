@@ -1,31 +1,40 @@
 # Jira Tools
 
-A Factory plugin for Jira issue creation and management via Atlassian MCP tools. Use `/jira-create` to create any issue type (Objectives, Initiatives, Epics, Stories, Bugs, and more) with guided intake and optional codebase analysis.
+A plugin for **Factory (Droid)** and **Claude Code** for Jira issue creation and management via Atlassian MCP tools. Use `/jira-create` to create any issue type (Objectives, Initiatives, Epics, Stories, Bugs, and more) with guided intake and optional codebase analysis.
 
 ## Installation
 
-### From Marketplace (Recommended)
+### Factory (Droid)
 
 ```bash
-# Add the marketplace
 droid plugin marketplace add https://github.com/mbensch/mb-ai-tools
-
-# Install the plugin
 droid plugin install jira-tools@mb-ai-tools
 ```
 
 Or use the interactive UI: `/plugins` → Marketplaces → Add marketplace → enter URL
 
+### Claude Code
+
+```bash
+/plugin marketplace add https://github.com/mbensch/mb-ai-tools
+/plugin install jira-tools@mb-ai-tools
+```
+
 ### From Local Directory (Development)
 
 ```bash
+# Factory
 droid plugin marketplace add /path/to/mb-ai-tools
 droid plugin install jira-tools@mb-ai-tools
+
+# Claude Code
+/plugin marketplace add /path/to/mb-ai-tools
+/plugin install jira-tools@mb-ai-tools
 ```
 
 ## Prerequisites
 
-Requires the [Atlassian MCP integration](https://app.factory.ai/settings/integrations) to be configured in Factory settings. The `acli` CLI is supported as a fallback for basic operations.
+Requires the [Atlassian MCP integration](https://app.factory.ai/settings/integrations) to be configured in your agent's settings. The `acli` CLI is supported as a fallback for basic operations.
 
 ## Commands
 
@@ -44,7 +53,7 @@ The primary entry point for creating any Jira issue type. The command:
 
 ### `manage-jira`
 
-General-purpose Jira ticket management. Droid will automatically use this skill when you ask to:
+General-purpose Jira ticket management. Automatically used when you ask to:
 
 - View, edit, or transition tickets
 - Search with JQL
