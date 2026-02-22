@@ -1,10 +1,10 @@
 ---
 name: create-jira-bug
-version: 1.2.0
+version: 1.3.0
+user-invocable: false
 description: |
   Create a well-structured Jira Bug with consistent formatting optimized for both human readers and AI agents.
-  Use when the user asks to file a bug, report a defect, or log an issue they encountered.
-  Handles clarifying questions, optional codebase investigation, and MCP-based ticket creation.
+  Invoked internally by the /jira-create command. Handles clarifying questions, optional codebase investigation, and MCP-based ticket creation.
 ---
 
 # Create Jira Bug

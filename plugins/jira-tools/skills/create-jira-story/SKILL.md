@@ -1,10 +1,10 @@
 ---
 name: create-jira-story
-version: 1.2.0
+version: 1.3.0
+user-invocable: false
 description: |
   Create a well-structured Jira Story with consistent formatting optimized for both human readers and AI agents.
-  Use when the user asks to create a Jira story, write a ticket, or capture work as a story.
-  Handles clarifying questions, optional codebase investigation, and MCP-based ticket creation.
+  Invoked internally by the /jira-create command. Handles clarifying questions, optional codebase investigation, and MCP-based ticket creation.
 ---
 
 # Create Jira Story
