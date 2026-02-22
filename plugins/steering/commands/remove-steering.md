@@ -8,7 +8,7 @@ Remove project steering rules. Follow these steps exactly:
 
 Use the AskUser tool to ask:
 
-> "This will permanently delete STEERING.md, remove the .factory/skills/tech-stack/ skill, and remove the steering section from AGENTS.md. Are you sure you want to proceed?"
+> "This will permanently delete STEERING.md, remove the .factory/skills/tech-stack/ skill, and remove the steering section from AGENTS.md (or CLAUDE.md). Are you sure you want to proceed?"
 
 Options:
 - Yes, remove everything
@@ -30,23 +30,26 @@ Check if `.factory/skills/tech-stack/` exists in the project root.
 - If the `.factory/` directory is now empty, delete it too.
 - If the directory does not exist, note that it was not found (skip silently).
 
-## Step 4: Remove steering section from AGENTS.md
+## Step 4: Remove steering section from AGENTS.md or CLAUDE.md
 
-Check if `AGENTS.md` exists in the project root.
-- If it does not exist, skip this step.
-- If it exists, read its contents and look for the steering section added by `/init-steering`. The section starts with:
+Check for agent rules files using this priority order:
+1. If `AGENTS.md` exists in the project root → edit it
+2. Else if `CLAUDE.md` exists in the project root → edit it instead
+3. If neither exists, skip this step
 
-  ```
-  ## Steering Rules (Non-Negotiable)
-  ```
+In whichever file is found, read its contents and look for the steering section added by `/init-steering`. The section starts with:
 
-  Remove that heading and everything beneath it that belongs to that section (until the next `##` heading or end of file). Also remove the blank line immediately preceding the heading if one exists.
+```
+## Steering Rules (Non-Negotiable)
+```
 
-  Leave all other content in AGENTS.md completely untouched. If the file becomes empty after removal, delete the file.
+Remove that heading and everything beneath it that belongs to that section (until the next `##` heading or end of file). Also remove the blank line immediately preceding the heading if one exists.
+
+Leave all other content completely untouched. If the file becomes empty after removal, delete it.
 
 ## Step 5: Report results
 
 Summarize what was done, listing each action taken and whether it succeeded or was skipped:
 - `STEERING.md` -- deleted or not found
 - `.factory/skills/tech-stack/` -- deleted or not found
-- `AGENTS.md` steering section -- removed or not found
+- `AGENTS.md` / `CLAUDE.md` steering section -- removed from which file, or not found

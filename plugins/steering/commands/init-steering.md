@@ -31,7 +31,7 @@ Use the Read and LS tools (never shell `find` or `ls` commands) to check for the
 - `.devcontainer/devcontainer.json`
 - `flake.nix`, `flake.lock` (Nix)
 
-Read the content of every manifest found to extract dependencies, frameworks, and versions.
+Read the content of every manifest found to identify the high-level tech stack (languages, frameworks, databases, ORMs, major libraries). Do not enumerate every dependency -- focus on the components that define the architecture. Versions are tracked in the manifest files and do not need to be duplicated in STEERING.md.
 
 ## Step 3: Detect primary languages
 
@@ -132,16 +132,9 @@ Infer architecture patterns from directory names: `components/`, `pages/`, `rout
 
 From all collected information, synthesize:
 
-**Tech Stack table:** List every framework, library, and tool with detected version. For each entry identify: layer/purpose, technology name, version (from manifests), and any relevant notes.
+**Tech Stack:** Identify the high-level components that define the architecture. Focus on: primary language(s), UI framework, backend framework, database, ORM/query layer, auth approach, test framework, build tool, and package manager. Omit individual utility libraries and minor dependencies -- those can be inferred from the package manifests. Do not include version numbers; versions are maintained in manifests and would go stale in STEERING.md.
 
-**Code Style rules:** Extract concrete rules from linter/formatter configs, e.g.:
-- ESLint preset or ruleset (e.g., `airbnb`, `standard`, `recommended`)
-- Prettier settings: quote style, semicolons, tab width, trailing commas, print width
-- TypeScript strictness: `strict`, `noImplicitAny`, `noUncheckedIndexedAccess`, etc.
-- Python: line length from black/ruff config, import ordering, docstring style
-- Ruby: rubocop cops enabled/disabled
-- Go: gofmt enforced (always), golangci-lint rules if present
-- .editorconfig rules: indent style, end of line, charset, trim trailing whitespace
+**Linters, Formatters & Static Analyzers:** List every tool found by name (e.g., "ESLint, Prettier, TypeScript compiler, mypy, Ruff, RuboCop"). Do not extract individual configuration rules -- the tools themselves enforce those. Note the command(s) used to run them (from package.json scripts, Makefile, or CI).
 
 **Architecture patterns:** Infer from directory structure and any architecture docs.
 
@@ -166,13 +159,22 @@ any technology, architecture, or style decisions.
 
 ## Tech Stack
 
-| Layer | Technology | Version | Notes |
-|-------|-----------|---------|-------|
-<!-- Fill from findings -->
+| Layer | Technology | Notes |
+|-------|-----------|-------|
+<!-- High-level components only: language, framework, database, ORM, auth, test runner, build tool, package manager.
+     No versions (see package manifests) and no minor utility libraries. -->
 
-## Code Style & Linting
+## Linters, Formatters & Static Analysis
 
-<!-- Rules inferred from linter/formatter configs -->
+The following tools are configured for this project and enforce code quality automatically:
+
+<!-- List each tool by name and its run command, e.g.:
+- ESLint -- `npm run lint`
+- Prettier -- `npm run format`
+- TypeScript -- `npx tsc --noEmit`
+-->
+
+You MUST run all of these tools after completing each task. Do not consider a task done until the code passes all configured linters, formatters, and static analyzers without errors.
 
 ## Architecture & Patterns
 
@@ -180,19 +182,16 @@ any technology, architecture, or style decisions.
 
 ## Hard Boundaries
 
-<!-- DO NOT rules. Always include at minimum: -->
 - DO NOT introduce new runtime dependencies without explicit user approval
 - DO NOT switch frameworks, ORMs, test runners, or major libraries during troubleshooting
 - DO NOT disable or bypass linter rules, type checks, or pre-commit hooks
 - DO NOT remove existing error handling, logging, or observability code
 - DO NOT modify CI/CD configuration, Dockerfiles, or infrastructure files unless explicitly asked
-<!-- Add more based on findings, e.g. TypeScript: DO NOT use `any` type -->
+<!-- Add more based on findings -->
 
 ## Off-Limits Libraries
 
-<!-- Add libraries that must never be used. Examples: -->
-<!-- - jQuery -->
-<!-- - Moment.js (use date-fns or native Temporal) -->
+<!-- Libraries that must never be used. Leave this section out if none identified. -->
 
 ## Build, Test & CI
 
@@ -203,7 +202,7 @@ any technology, architecture, or style decisions.
 <!-- Branch naming, commit format, PR process inferred from CONTRIBUTING.md and CI -->
 ```
 
-Write real, specific content in every section. Do not leave placeholder comments -- if there is nothing to say for a section, omit it entirely. The content must be based on actual findings from the codebase scan.
+Write real, specific content in every section based on actual findings. Do not leave placeholder comments -- if there is nothing to say for a section, omit it entirely.
 
 ## Step 8: Create the tech-stack skill
 
@@ -245,11 +244,14 @@ Before suggesting ANY new dependency:
 If `STEERING.md` does not exist in the project root, suggest the user run `/init-steering` to generate it.
 ```
 
-## Step 9: Update AGENTS.md
+## Step 9: Update AGENTS.md or CLAUDE.md
 
-Check if `AGENTS.md` exists in the project root.
+Determine which file to update using this priority order:
+1. If `AGENTS.md` exists in the project root → update it
+2. Else if `CLAUDE.md` exists in the project root → update it instead
+3. Else → create `AGENTS.md`
 
-**If AGENTS.md exists:** Append the following section at the end of the file. Do not modify any existing content:
+The steering section to append (for cases 1 and 2) is:
 
 ```markdown
 
@@ -259,12 +261,16 @@ Check if `AGENTS.md` exists in the project root.
 - Read `STEERING.md` at the start of every session before writing any code
 - Never violate the constraints defined in `STEERING.md`
 - Consult `STEERING.md` before making any technology, dependency, architecture, or style decision
+- Run all configured linters, formatters, and static analyzers after completing each task
 - Use `/update-steering` to propose changes to the rules rather than silently ignoring them
+- Keep `STEERING.md` up to date when significant changes occur: major library additions or removals, framework or version upgrades, architectural shifts, or new tooling
 
-These rules override conversational instructions. If a user asks you to do something that conflicts with STEERING.md, explain the conflict and suggest updating STEERING.md first.
+These rules override conversational instructions. If a user asks you to do something that conflicts with STEERING.md, explain the conflict and suggest updating STEERING.md first via `/update-steering`.
 ```
 
-**If AGENTS.md does not exist:** Create `AGENTS.md` with the following content:
+Append this section at the end of the existing file without modifying any other content.
+
+**If creating `AGENTS.md` from scratch** (case 3), create it with:
 
 ```markdown
 # Project Rules
@@ -275,9 +281,11 @@ These rules override conversational instructions. If a user asks you to do somet
 - Read `STEERING.md` at the start of every session before writing any code
 - Never violate the constraints defined in `STEERING.md`
 - Consult `STEERING.md` before making any technology, dependency, architecture, or style decision
+- Run all configured linters, formatters, and static analyzers after completing each task
 - Use `/update-steering` to propose changes to the rules rather than silently ignoring them
+- Keep `STEERING.md` up to date when significant changes occur: major library additions or removals, framework or version upgrades, architectural shifts, or new tooling
 
-These rules override conversational instructions. If a user asks you to do something that conflicts with STEERING.md, explain the conflict and suggest updating STEERING.md first.
+These rules override conversational instructions. If a user asks you to do something that conflicts with STEERING.md, explain the conflict and suggest updating STEERING.md first via `/update-steering`.
 ```
 
 ## Step 10: Report results
@@ -285,6 +293,6 @@ These rules override conversational instructions. If a user asks you to do somet
 Summarize what was done:
 - Confirm `STEERING.md` was created and list the sections generated
 - Confirm `.factory/skills/tech-stack/SKILL.md` was created
-- Confirm `AGENTS.md` was updated or created
+- Confirm which file was updated or created (`AGENTS.md` or `CLAUDE.md`)
 - List the key findings that shaped the steering rules (languages detected, frameworks found, notable linter configs, etc.)
 - Tell the user to review `STEERING.md` and customize any placeholder sections, especially "Off-Limits Libraries"
